@@ -106,6 +106,13 @@ app.layout = dbc.Container([
         ])
     ], className="my-4"),
 
+        dbc.Row([
+        dbc.Col([
+            html.H2("Heatmap des Impressions par Jour et Heure"),
+            dcc.Graph(figure=create_heatmap(impressions_jours_heures, 'Heatmap des Impressions par Jour et Heure', 'Heure de début', 'Jour')),
+        ])
+    ], className="my-4"),
+
     dbc.Row([
         dbc.Col([
             html.H2("Impressions par Sexe"),
@@ -117,13 +124,6 @@ app.layout = dbc.Container([
         dbc.Col([
             html.H2("Impressions par Tranche d'âge"),
             dcc.Graph(figure=create_plotly_plot(impressions_tranches.groupby("Tranche d'âge")['Impressions'].sum().reset_index(), "Tranche d'âge", 'Impressions', "Impressions par Tranche d'âge", {"Tranche d'âge": "Tranche d'âge", 'Impressions': 'Impressions'})),
-        ])
-    ], className="my-4"),
-
-    dbc.Row([
-        dbc.Col([
-            html.H2("Heatmap des Impressions par Jour et Heure"),
-            dcc.Graph(figure=create_heatmap(impressions_jours_heures, 'Heatmap des Impressions par Jour et Heure', 'Heure de début', 'Jour')),
         ])
     ], className="my-4"),
 
