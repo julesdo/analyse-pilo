@@ -7,3 +7,4 @@ plotly==5.14.1
 scikit-learn==1.2.2
 numpy==1.24.3
 setuptools==58.2.0
+distutils==3.8.1
